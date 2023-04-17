@@ -1,5 +1,7 @@
 
 import { useState } from "react"
+import WineCard from "./WineCard"
+
 export default function Winelist() {
     const [ theWines, setTheWines ] = useState()
     const getWines = () => {
@@ -13,10 +15,7 @@ export default function Winelist() {
             {(!theWines)
                 ? <button onClick={getWines}>Get Wine List</button>
                 : theWines.map(wine => (
-                    <div key={wine.id} className="wine-card">
-                        <h2>{wine.wine}</h2>
-                        <img src={wine.image} alt="" />
-                    </div>
+                    <WineCard key={wine.id} wine={wine} />
                 ))
             }
         </section>
